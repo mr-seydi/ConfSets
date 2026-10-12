@@ -19,45 +19,6 @@ Then load the package:
 library(ConfSets)
 ```
 
-## Quick start
-
-The package includes `TEST_data` and `RETEST_data`, matrices with 30 simulated curves (rows) measured at 100 evaluation points (columns). Load them explicitly with `data()`:
-
-```r
-data("TEST_data", package = "ConfSets")
-data("RETEST_data", package = "ConfSets")
-
-icc <- functional_ICC(
-  test = TEST_data,
-  retest = RETEST_data,
-  designation = "ICC(A,1)",
-  alpha = 0.05
-)
-
-icc$integrated_ICC
-```
-
-To construct a confidence interval for the integrated ICC and simultaneous confidence bands for the ICC curve, use `Conf_sets()`:
-
-```r
-set.seed(123)
-
-results <- Conf_sets(
-  test = TEST_data,
-  retest = RETEST_data,
-  type = c("Rank", "Normal"),
-  n_boot = 1000,
-  designation = "ICC(A,1)",
-  alpha = 0.05
-)
-
-results$CSets$Rank    # simultaneous bands for the ICC curve
-results$CSets$Normal  # interval for the integrated ICC
-plot_ICC(results)
-```
-
-`n_boot` controls the number of bootstrap samples. Increase it for final analyses when runtime allows.
-
 ## Main functions
 
 - `functional_ICC()` calculates pointwise and integrated ICC estimates.
@@ -92,7 +53,6 @@ citation("ConfSets")
 ## Authors
 
 - Mohammad Reza Seydi — [ORCID](https://orcid.org/0009-0002-3278-5554)
-- Lina Schelin — [ORCID](https://orcid.org/0000-0001-7917-5687)
 
 ## License
 
