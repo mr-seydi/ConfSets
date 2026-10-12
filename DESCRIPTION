@@ -1,0 +1,40 @@
+Package: ConfSets
+Type: Package
+Title: Confidence Sets for Functional ICC in Test-Retest Studies
+Version: 1.0.0
+Authors@R: c(
+    person(
+      given = "Mohammad Reza", family = "Seydi",
+      email = "mohammad.seydi@umu.se",
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0009-0002-3278-5554")
+    ),
+    person(
+    given = "Lina", family ="Schelin",
+    email = "lina.schelin@umu.se",
+    role = "aut",
+    comment = c(ORCID = "0000-0001-7917-5687")
+    )
+  )
+Description: This package constructs confidence sets for the intraclass correlation coefficient (ICC) of functional (curve) data in a test-retest setting.
+  The confidence sets can be expressed as an ICC curve with confidence bands or as an integrated ICC with a confidence interval.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 3.5)
+Imports: 
+    GET,
+    ggplot2,
+    progress
+Suggests: 
+    dplyr,
+    fda,
+    knitr,
+    mvtnorm,
+    rmarkdown,
+    testthat (>= 3.0.0),
+    tidyr
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Config/roxygen2/version: 8.1.1

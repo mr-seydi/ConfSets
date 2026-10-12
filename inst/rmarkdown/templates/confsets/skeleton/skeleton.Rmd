@@ -1,0 +1,24 @@
+---
+title: "ConfSets Guide"
+author: "Mohammad Reza Seydi"
+date: Sys.time()
+output: output_format
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Load the confsets package
+
+```{r}
+library(confsets)
+```
+
+# Load test and retest data inside the package
+
+```{r}
+data_TEST
+data_RETEST
+```
+
