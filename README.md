@@ -10,8 +10,16 @@ Install the development version from GitHub:
 
 ```r
 install.packages("remotes")
-remotes::install_github("mr-seydi/ConfSets")
+remotes::install_github(
+  "mr-seydi/ConfSets",
+  ref = "v1.1.0",
+  dependencies = TRUE,
+  build_vignettes = TRUE,
+  force = TRUE
+)
 ```
+
+Note: Building the vignettes may take some time because the helper document includes several bootstrap.
 
 Then load the package:
 
