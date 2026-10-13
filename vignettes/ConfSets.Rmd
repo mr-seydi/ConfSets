@@ -237,7 +237,9 @@ Note that the the `pointwise_F_bands_ICC` function calculates the pointwise conf
 The pointwise F bands do not provide simultaneous coverage.
 
 The code below calculates the confidence sets for the functional ICC in a test-retest setting.
-The function requires the test and retest data, if it is unbalanced case it require individuals, the type of confidence sets to be calculated, the number of bootstrap samples, the designation, and the significance level as input arguments.
+The function requires the test and retest data, if it is unbalanced case it requires `individuals`, and it also accepts the type of confidence sets, number of bootstrap samples, designation, and significance level.
+
+By default, `resample_trials = FALSE`: each bootstrap sample resamples individuals while retaining all observed trial rows for each selected individual. Set `resample_trials = TRUE` to additionally resample trial rows with replacement within each selected individual and session. This option is useful when individuals have repeated trials. The default is shown explicitly in the examples below.
 
 ### Confidence Sets (Balanced)
 
@@ -245,7 +247,8 @@ The function requires the test and retest data, if it is unbalanced case it requ
 set.seed(123)
 confsets_outputs_balance <- Conf_sets(test = TEST_data, retest = RETEST_data,
                               type = c("Rank", "Normal"), n_boot=1000,
-                              designation = "ICC(A,1)", alpha = 0.05)
+                              designation = "ICC(A,1)", alpha = 0.05,
+                              resample_trials = FALSE)
 confsets_outputs_balance$pointwise_ICC
 confsets_outputs_balance$integrated_ICC
 confsets_outputs_balance$CSets
@@ -262,7 +265,8 @@ confsets_outputs_unbalance <- Conf_sets(test = TEST_data, retest = RETEST_data,
                               individuals = c(1:2, rep(3, 3), 4:28, 1,
                                               rep(2,2), rep(3, 2), 4:28),
                               type = c("Rank", "Normal"), n_boot=1000,
-                              designation = "ICC(A,1)", alpha = 0.05)
+                              designation = "ICC(A,1)", alpha = 0.05,
+                              resample_trials = FALSE)
 confsets_outputs_unbalance$pointwise_ICC
 confsets_outputs_unbalance$integrated_ICC
 confsets_outputs_unbalance$CSets

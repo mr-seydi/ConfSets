@@ -7,6 +7,7 @@
 #'@param individuals A vector of individual identifiers. It must be the combined vector of individual identifiers for test and retest. If NULL, the function assumes that the individuals in the test and retest matrices are the same.
 #'@param type A character vector specifying the type of confidence sets to be calculated. Possible values are "Rank" for ICC curve confidence bands, and "Normal" for integrated ICC confidence interval. The user can choose one or both. The default value is both "Rank" and "Normal".
 #'@param n_boot A numeric value specifying the number of bootstrap samples. The default value is 1000.
+#'@param resample_trials Logical; whether to resample trial rows within each selected individual and session during bootstrapping. Defaults to FALSE, which resamples individuals but keeps their observed trials unchanged.
 #'@param designation A character string specifying the designation of the ICC. Possible values are "ICC(A,1)" and "ICC(A,k)". Possible designation is "ICC(A,1)", "ICC(A,k)" based on the paper: McGraw KO, Wong SP. Forming inferences about some intraclass correlation coefficients. Psychological methods. 1996 Mar;1(1):30. The default value is "ICC(A,1)".
 #'@param alpha A numeric value specifying the significance level for the ICC calculation. The default value is 0.05.
 #'
@@ -21,7 +22,8 @@
 #' set.seed(123)
 #' confsets_outputs <- Conf_sets(test = TEST_data, retest = RETEST_data,
 #'                              type = c("Rank", "Normal"), n_boot=1000,
-#'                              designation = "ICC(A,1)", alpha = 0.05)
+#'                              designation = "ICC(A,1)", alpha = 0.05,
+#'                              resample_trials = FALSE)
 #'
 #' confsets_outputs$pointwise_ICC
 #' confsets_outputs$integrated_ICC
@@ -41,7 +43,8 @@
 #'                              individuals = c(1:2, rep(3, 3), 4:28, 1, rep(2,2),
 #'                              rep(3, 2), 4:28),
 #'                              type = c("Rank", "Normal"), n_boot=1000,
-#'                              designation = "ICC(A,1)", alpha = 0.05)
+#'                              designation = "ICC(A,1)", alpha = 0.05,
+#'                              resample_trials = FALSE)
 #'
 #' confsets_outputs$pointwise_ICC
 #' confsets_outputs$integrated_ICC
@@ -51,7 +54,11 @@
 #'
 #'@export
 Conf_sets <- function(test, retest, individuals = NULL, type = c("Rank", "Normal"),
-                      n_boot=1000, designation = "ICC(A,1)", alpha = 0.05){
+                      n_boot=1000, designation = "ICC(A,1)", alpha = 0.05, resample_trials = FALSE){
+
+  if (!is.logical(resample_trials) || length(resample_trials) != 1L || is.na(resample_trials)) {
+    stop("'resample_trials' must be TRUE or FALSE.")
+  }
 
   # Valid types for simultaneous bands
   valid_types <- c("Rank", "Normal")
@@ -121,7 +128,10 @@ Conf_sets <- function(test, retest, individuals = NULL, type = c("Rank", "Normal
   # boot_index = boot_function_index(data=1:n, number_of_resample = n_boot)
 
 
-  boot_index <- bootstrap_indices(test=test, retest=retest, individuals = individual_test_retest, n_boot = n_boot)
+  boot_index <- bootstrap_indices(test=test, retest=retest,
+                                  individuals = individual_test_retest,
+                                  n_boot = n_boot,
+                                  resample_trials = resample_trials)
 
 
   ICC.Pointwise.boot = matrix(NA,t,n_boot)
@@ -179,6 +189,4 @@ Conf_sets <- function(test, retest, individuals = NULL, type = c("Rank", "Normal
 
 
 }
-
-
 

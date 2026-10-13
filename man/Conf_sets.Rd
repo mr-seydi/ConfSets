@@ -11,7 +11,8 @@ Conf_sets(
   type = c("Rank", "Normal"),
   n_boot = 1000,
   designation = "ICC(A,1)",
-  alpha = 0.05
+  alpha = 0.05,
+  resample_trials = FALSE
 )
 }
 \arguments{
@@ -24,6 +25,8 @@ Conf_sets(
 \item{type}{A character vector specifying the type of confidence sets to be calculated. Possible values are "Rank" for ICC curve confidence bands, and "Normal" for integrated ICC confidence interval. The user can choose one or both. The default value is both "Rank" and "Normal".}
 
 \item{n_boot}{A numeric value specifying the number of bootstrap samples. The default value is 1000.}
+
+\item{resample_trials}{Logical; whether to resample trial rows within each selected individual and session during bootstrapping. Defaults to FALSE, which resamples individuals but keeps their observed trials unchanged.}
 
 \item{designation}{A character string specifying the designation of the ICC. Possible values are "ICC(A,1)" and "ICC(A,k)". Possible designation is "ICC(A,1)", "ICC(A,k)" based on the paper: McGraw KO, Wong SP. Forming inferences about some intraclass correlation coefficients. Psychological methods. 1996 Mar;1(1):30. The default value is "ICC(A,1)".}
 
@@ -43,7 +46,8 @@ This function calculates the confidence sets for functional ICC in Test-Retest s
 set.seed(123)
 confsets_outputs <- Conf_sets(test = TEST_data, retest = RETEST_data,
                              type = c("Rank", "Normal"), n_boot=1000,
-                             designation = "ICC(A,1)", alpha = 0.05)
+                             designation = "ICC(A,1)", alpha = 0.05,
+                             resample_trials = FALSE)
 
 confsets_outputs$pointwise_ICC
 confsets_outputs$integrated_ICC
@@ -63,7 +67,8 @@ confsets_outputs <- Conf_sets(test = TEST_data, retest = RETEST_data,
                              individuals = c(1:2, rep(3, 3), 4:28, 1, rep(2,2),
                              rep(3, 2), 4:28),
                              type = c("Rank", "Normal"), n_boot=1000,
-                             designation = "ICC(A,1)", alpha = 0.05)
+                             designation = "ICC(A,1)", alpha = 0.05,
+                             resample_trials = FALSE)
 
 confsets_outputs$pointwise_ICC
 confsets_outputs$integrated_ICC

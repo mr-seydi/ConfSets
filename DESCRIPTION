@@ -1,19 +1,13 @@
 Package: ConfSets
 Type: Package
 Title: Confidence Sets for Functional ICC in Test-Retest Studies
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: c(
     person(
       given = "Mohammad Reza", family = "Seydi",
       email = "mohammad.seydi@umu.se",
       role = c("aut", "cre"),
       comment = c(ORCID = "0009-0002-3278-5554")
-    ),
-    person(
-    given = "Lina", family ="Schelin",
-    email = "lina.schelin@umu.se",
-    role = "aut",
-    comment = c(ORCID = "0000-0001-7917-5687")
     )
   )
 Description: This package constructs confidence sets for the intraclass correlation coefficient (ICC) of functional (curve) data in a test-retest setting.

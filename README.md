@@ -26,6 +26,8 @@ library(ConfSets)
 - `plot_ICC()` plots the estimated ICC curve with Rank confidence bands.
 - `pointwise_F_bands_ICC()` calculates pointwise F-based confidence bands. These are pointwise bands and do not provide simultaneous coverage.
 
+`Conf_sets()` accepts `resample_trials = FALSE` by default. This resamples individuals while retaining each selected individual's observed trial rows. Set `resample_trials = TRUE` to also resample trial rows with replacement within each individual and session.
+
 The functions support `"ICC(A,1)"` (single measurement) and `"ICC(A,k)"` (average measurement) designations where documented. Supply matrices with evaluation points in columns. For balanced test and retest data, each row should correspond to the same individual in both matrices; leave `individuals = NULL`. For unbalanced `"ICC(A,1)"` data, provide the combined individual-ID vector for the test rows followed by the retest rows.
 
 **Confidence sets for unbalanced data have not been validated.** Interpret those results with care. The package documentation also describes the data format and methods in more detail.

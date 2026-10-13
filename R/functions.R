@@ -9,7 +9,7 @@
 # }
 
 
-bootstrap_indices <- function(test, retest, individuals, n_boot) {
+bootstrap_indices <- function(test, retest, individuals, n_boot, resample_trials = FALSE) {
 
   n_test   <- nrow(test)
   n_retest <- nrow(retest)
@@ -25,7 +25,11 @@ bootstrap_indices <- function(test, retest, individuals, n_boot) {
   n_ids <- length(unique_ids)
 
   # Resample the elements of x with replacement (safe when length(x) == 1)
-  resample <- function(x) x[sample.int(length(x), length(x), replace = TRUE)]
+  resample <- if (resample_trials) {
+    function(x) x[sample.int(length(x), length(x), replace = TRUE)]
+  } else {
+    function(x) x
+  }
 
   lapply(seq_len(n_boot), function(b) {
 
