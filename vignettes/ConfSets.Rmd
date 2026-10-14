@@ -159,12 +159,13 @@ Depending on the unist of analysis are averaged or not, the functional ICC can b
 2. "ICC(A,k)": Average measurement
 based on the designation mentioned in the paper: **McGraw KO, Wong SP. Forming inferences about some intraclass correlation coefficients. Psychological methods. 1996 Mar;1(1):30.**.
 
+Note that the estimated ICC can be negative and will be considered as zero.
+
 ## ICC(A,1) designation
 
 This designation is used to calculate the intraclass correlation coefficient (ICC) for a functional data set in a test-retest setting for both balanced and unbalanced cases.
-Unbalanced case refres to 
-the case where we do not assume that the number of trials for each test session and each individual, is the same.
-The balanced case refers to the case where we assume that the number of trials for each test session and each individual is the same.
+Unbalanced case refers to the case where we do not assume that the number of trials for each test session and each individual, is the same.
+The balanced case refers to the setting in which each individual contributes exactly one observation, or one summary of repeated observations (e.g., the average over trials), to the analysis.
 
 ### Balanced case
 
@@ -182,9 +183,8 @@ output_balanced_ICCA1$integrated_ICC
 
 ### Unbalanced case
 To calculate the functional ICC for the test and retest data with the designation "ICC(A,1)" and the unbalanced case, we use the `functional_ICC`.
-So, consider the scenario with unbalanced case, in total we have 28 individuals, and for example the individuals number 2 has attended 1 test and 2 retest trials, number 3 has attended 3 test and 2 retest trials, the other individuals have attended only one trials.
+For example, consider the scenario with unbalanced case, in total we have 28 individuals, and for example the individuals number 2 has attended 1 test and 2 retest trials, number 3 has attended 3 test and 2 retest trials, the other individuals have attended only one trials.
 Then vector should be like **c(1:2, rep(3, 3), 4:28, 1, rep(2,2), rep(3, 2), 4:28)**.
-Note that the estimated ICC can be negative and will be considered as zero.
 For this unbalanced case we use the same dataset and assume it is for an unbalanced case.
 The other parameters are the same as the balanced case.
 
@@ -239,7 +239,7 @@ The pointwise F bands do not provide simultaneous coverage.
 The code below calculates the confidence sets for the functional ICC in a test-retest setting.
 The function requires the test and retest data, if it is unbalanced case it requires `individuals`, and it also accepts the type of confidence sets, number of bootstrap samples, designation, and significance level.
 
-By default, `resample_trials = FALSE`: each bootstrap sample resamples individuals while retaining all observed trial rows for each selected individual. Set `resample_trials = TRUE` to additionally resample trial rows with replacement within each selected individual and session. This option is useful when individuals have repeated trials. The default is shown explicitly in the examples below.
+By default, `resample_trials = FALSE`: each bootstrap sample resamples individuals while retaining all observed trial rows for each selected individual. Set `resample_trials = TRUE` to additionally resample trial rows with replacement within each selected individual and session. The default is shown explicitly in the examples below.
 
 ### Confidence Sets (Balanced)
 

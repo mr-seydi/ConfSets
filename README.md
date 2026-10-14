@@ -37,7 +37,7 @@ library(ConfSets)
 
 The functions support `"ICC(A,1)"` (single measurement) and `"ICC(A,k)"` (average measurement) designations where documented. Supply matrices with evaluation points in columns. For unbalanced `"ICC(A,1)"` data, provide the combined individual-ID vector for the test rows followed by the retest rows.
 
-**Confidence sets for unbalanced data have not been validated.** Interpret those results with care. The package documentation also describes the data format and methods in more detail.
+The package documentation describes the data format and methods in more detail.
 
 ## Documentation
 

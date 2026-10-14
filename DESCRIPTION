@@ -1,7 +1,7 @@
 Package: ConfSets
 Type: Package
 Title: Confidence Sets for Functional ICC in Test-Retest Studies
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: c(
     person(
       given = "Mohammad Reza", family = "Seydi",

@@ -1,0 +1,16 @@
+bibentry(
+  bibtype = "Article",
+  key = "seydi2024confidence",
+  title = "Confidence sets for intraclass correlation coefficients in test--retest curve measurements",
+  author = c(
+    person("Mohammad Reza", "Seydi"),
+    person("Alessia", "Pini"),
+    person("Todd C.", "Pataky"),
+    person("Lina", "Schelin")
+  ),
+  journal = "Journal of Biomechanics",
+  volume = "173",
+  pages = "112232",
+  year = 2024,
+  publisher = "Elsevier"
+)
