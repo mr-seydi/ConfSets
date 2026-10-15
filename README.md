@@ -12,7 +12,7 @@ Install the development version from GitHub:
 install.packages("remotes")
 remotes::install_github(
   "mr-seydi/ConfSets",
-  ref = "v1.1.0",
+  ref = "v1.1.1",
   dependencies = TRUE,
   build_vignettes = TRUE,
   force = TRUE
