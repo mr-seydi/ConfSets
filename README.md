@@ -1,4 +1,4 @@
-# ConfSets <img src="man/figures/logo.svg" align="right" height="150" alt="ConfSets logo: a cube with functional curves and a confidence band" />
+# ConfSets <img src="man/figures/logo.svg" align="right" height="150" alt="ConfSets hexagonal logo with a functional curve and confidence band" />
 
 **Confidence sets for functional intraclass correlation coefficients (ICC) in test–retest studies.**
 
