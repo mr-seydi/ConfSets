@@ -2,7 +2,7 @@
 title: "ConfSets package: Confidence sets for functional ICC in test–retest settings"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Confidence sets for functional ICC in test–retest settings}
+  %\VignetteIndexEntry{ConfSets package: Confidence sets for functional ICC in test–retest settings}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

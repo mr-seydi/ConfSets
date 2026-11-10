@@ -6,20 +6,16 @@ ConfSets estimates reliability from repeated curve measurements and supports con
 
 ## Install
 
-Install the development version from GitHub:
+Install the released version from GitHub:
 
 ```r
 install.packages("remotes")
 remotes::install_github(
   "mr-seydi/ConfSets",
   ref = "v1.1.1",
-  dependencies = TRUE,
-  build_vignettes = TRUE,
-  force = TRUE
+  dependencies = TRUE
 )
 ```
-
-Note: Building the vignettes may take some time because the helper document includes several bootstrap.
 
 Then load the package:
 
@@ -41,11 +37,7 @@ The package documentation describes the data format and methods in more detail.
 
 ## Documentation
 
-See the package vignette for the data-generation details, ICC designations, examples, and confidence-set methods:
-
-```r
-vignette("ConfSets", package = "ConfSets")
-```
+Read the [rendered vignette](https://mr-seydi.github.io/ConfSets/articles/ConfSets.html) for data-generation details, ICC designations, examples, and confidence-set methods. To run its chunks yourself in RStudio, download the [R Markdown source](https://github.com/mr-seydi/ConfSets/blob/v1.1.1/vignettes/ConfSets.Rmd) and open it in the editor.
 
 Function help is available in R with, for example, `?functional_ICC` and `?Conf_sets`.
 
