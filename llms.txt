@@ -1,4 +1,4 @@
-# ConfSets
+# ConfSets ![ConfSets hex sticker with a functional curve and confidence band](reference/figures/ConfSets-hex.png)
 
 **Confidence sets for functional intraclass correlation coefficients
 (ICC) in test–retest studies.**
